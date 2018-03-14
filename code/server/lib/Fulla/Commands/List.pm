@@ -6,7 +6,7 @@ use warnings;
 sub reply {
     my $class  = shift;
     my $option = shift;
-    if($potion){
+    if($option){
         $option = shell_quote($option);
     }
 
