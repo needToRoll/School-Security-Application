@@ -33,3 +33,9 @@ inc/
 /MANIFEST.bak
 /pm_to_blib
 /*.zip
+/.idea/
+.idea/School-Security-Application.iml
+.idea/inspectionProfiles/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/*
