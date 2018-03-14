@@ -41,10 +41,12 @@ sub check {
         my $hash_client = Digest->new('MD5')->add($pass)->hexdigest;
 
         # https://www.w3schools.com/sql/sql_injection.asp
-        my $sql = "SELECT id FROM user WHERE name = '$user' and pw_hash = '$hash_client'";
+        my $sql = "SELECT id FROM user WHERE name = '?' and pw_hash = '?'";
         $self->{log}->debug("QUERY: $sql");
 
         my $sth = $self->{dbh}->prepare($sql);
+        $sth->bind_param(1, $user);
+        $sth->bind_param(2, $hash_client);
         $sth->execute();
         my ($user_id) = $sth->fetchrow_array();
 

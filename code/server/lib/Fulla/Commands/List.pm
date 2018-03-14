@@ -6,6 +6,9 @@ use warnings;
 sub reply {
     my $class  = shift;
     my $option = shift;
+    if($potion){
+        $option = shell_quote($option);
+    }
 
     return `ls $option`;
 
