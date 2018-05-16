@@ -49,7 +49,9 @@ my $socket = new IO::Socket::INET (
     LocalAddr     => '0.0.0.0',     # local server address
     LocalPort     => '7777',        # local server port
     Listen        => 5,             # queue size for connections
-    Proto         => 'tcp',         # protocol used
+    Proto         => 'tcp',
+    SSL_cert_file => '../resources/fulla_cert.pem',
+    SSL_key_file  => '../resources/fulla_key.pem',
 );
 die "cannot create socket $!\n" unless $socket;
 $log->fatal("cannot create socket $!") unless $socket;

@@ -9,9 +9,10 @@ $| = 1;
 
 # create a connecting socket
 my $socket = new IO::Socket::INET (
-    PeerHost    => '127.0.0.1',
-    PeerPort    => '7777',
-    Proto       => 'tcp',
+    PeerHost        => '127.0.0.1',
+    PeerPort        => '7777',
+    Proto           => 'tcp',
+    SSL_ca_file     => 'resources/fulla_cert.pem'
 );
 die "cannot connect to the server $!\n" unless $socket;
 
